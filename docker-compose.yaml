@@ -1,0 +1,84 @@
+version: '3'
+
+services:
+  nginx-gateway:
+    container_name: nginx-gateway
+    image: nginx:latest
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - kimi-free-api
+      - step-free-api
+      - qwen-free-api
+      - glm-free-api
+      - metaso-free-api
+      - spark-free-api
+      - hailuo-free-api
+      - deepseek-free-api
+      - emohaa-free-api
+
+  kimi-free-api:
+    container_name: kimi-free-api
+    image: vinlic/kimi-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  step-free-api:
+    container_name: step-free-api
+    image: vinlic/step-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  qwen-free-api:
+    container_name: qwen-free-api
+    image: vinlic/qwen-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  glm-free-api:
+    container_name: glm-free-api
+    image: vinlic/glm-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  metaso-free-api:
+    container_name: metaso-free-api
+    image: vinlic/metaso-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  spark-free-api:
+    container_name: spark-free-api
+    image: vinlic/spark-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  hailuo-free-api:
+    container_name: hailuo-free-api
+    image: vinlic/hailuo-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  deepseek-free-api:
+    container_name: deepseek-free-api
+    image: vinlic/deepseek-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+
+  emohaa-free-api:
+    container_name: emohaa-free-api
+    image: vinlic/emohaa-free-api:latest
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
